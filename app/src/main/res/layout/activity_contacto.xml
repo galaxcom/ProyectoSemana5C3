@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mx.galaxcom.proyectosemana4c3.activities.ContactoActivity">
+
+    <include
+        android:id="@+id/miActionBar"
+        layout="@layout/mi_toolbar"></include>
+
+    <TextView
+        android:id="@+id/txtContacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/miActionBar"
+        android:text="@string/contacto"
+        android:textSize="30dp"
+        android:layout_marginBottom="20dp"/>
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintNombre"
+        android:layout_below="@id/txtContacto"/>
+
+    <EditText
+        android:id="@+id/etCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etNombre"
+        android:hint="@string/hintCorreo"/>
+
+    <EditText
+        android:id="@+id/etMensaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etCorreo"
+        android:hint="@string/hintMensaje"/>
+
+    <Button
+        android:id="@+id/btnEnviarCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etMensaje"
+        android:text="@string/btnEnviar"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>

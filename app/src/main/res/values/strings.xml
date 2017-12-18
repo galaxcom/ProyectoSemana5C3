@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ProyectoMascotas</string>
+    <string name="nombreMascota">nombre</string>
+    <string name="ratingMascota">0</string>
+    <string name="itemContacto">Contacto</string>
+    <string name="itemAcercaDe">Acerca De</string>
+    <string name="itemEstrella">Mascotas favoritas</string>
+    <string name="nombreMascotaPerfil">Mascota</string>
+    <string name="hintNombre">Nombre</string>
+    <string name="hintMensaje">Mensaje</string>
+    <string name="hintCorreo">Tu correo</string>
+    <string name="btnEnviar">Enviar Mail</string>
+    <string name="contacto">Contacto</string>
+</resources>
