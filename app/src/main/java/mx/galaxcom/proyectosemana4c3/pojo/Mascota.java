@@ -5,13 +5,18 @@ package mx.galaxcom.proyectosemana4c3.pojo;
  */
 
 public class Mascota {
+    private int id;
     private int imagen;
     private String nombre;
-    public String rating = "5";
+    private int rating;
 
-    public Mascota(int imagen, String nombre) {
+    public Mascota(int imagen, String nombre, int rating) {
         this.imagen = imagen;
         this.nombre = nombre;
+        this.rating = rating;
+    }
+
+    public Mascota(){
     }
 
     public int getImagen() {
@@ -30,11 +35,20 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public String getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

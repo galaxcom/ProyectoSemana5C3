@@ -5,14 +5,18 @@ import android.support.v7.widget.*;
 
 import java.util.ArrayList;
 
+import mx.galaxcom.proyectosemana4c3.vista.ILista5MascotasView;
 import mx.galaxcom.proyectosemana4c3.R;
 import mx.galaxcom.proyectosemana4c3.adapters.MascotaAdapter;
 import mx.galaxcom.proyectosemana4c3.pojo.Mascota;
+import mx.galaxcom.proyectosemana4c3.presentador.ILista5MascotasPresenter;
+import mx.galaxcom.proyectosemana4c3.presentador.Lista5MascotasPresenter;
 
-public class Lista5Mascotas extends AppCompatActivity {
+public class Lista5Mascotas extends AppCompatActivity implements ILista5MascotasView {
 
     ArrayList<Mascota> misMascotas;
     private RecyclerView miListaMascotas;
+    private ILista5MascotasPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +29,29 @@ public class Lista5Mascotas extends AppCompatActivity {
 
         miListaMascotas = (RecyclerView) findViewById(R.id.rvActivity2);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        presenter = new Lista5MascotasPresenter(this, this);
 
-        miListaMascotas.setLayoutManager(linearLayoutManager);
+        crearLayoutManager();
 
         misMascotas = new ArrayList<Mascota>();
 
-        misMascotas.add(new Mascota(R.drawable.perro1, "Nombre"));
-        misMascotas.add(new Mascota(R.drawable.perro3, "Nombre"));
-        misMascotas.add(new Mascota(R.drawable.perro4, "Nombre"));
-        misMascotas.add(new Mascota(R.drawable.perro5, "Nombre"));
-        misMascotas.add(new Mascota(R.drawable.perro2, "Nombre"));
+    }
 
+    @Override
+    public void crearLayoutManager() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        miListaMascotas.setLayoutManager(linearLayoutManager);
+    }
 
-        MascotaAdapter miAdapter = new MascotaAdapter(misMascotas);
-        miListaMascotas.setAdapter(miAdapter);
+    @Override
+    public MascotaAdapter crearAdapter(ArrayList<Mascota> mascotas) {
+        MascotaAdapter miAdapter = new MascotaAdapter(mascotas, this);
+        return miAdapter;
+    }
+
+    @Override
+    public void inicializarAdapter(MascotaAdapter adapter) {
+        miListaMascotas.setAdapter(adapter);
     }
 }
